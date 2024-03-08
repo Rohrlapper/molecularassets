@@ -33,8 +33,6 @@ let showCircles = false; // Initialt satt til å vise sirkler
 let showLines = false; // Initialt satt til å vise linjer
 let showSpecialImages = false; // Denne variabelen kontrollerer visningen av spesielle bilder
 
-
-
 let images = {}; // Object to hold all your images
 
 function preload() {
@@ -52,7 +50,7 @@ function preload() {
   baseNames.forEach(baseName => {
     for (let i = 1; i <= 4; i++) {
       const imageName = `${baseName}_${i}`;
-      const imagePath = `../../assets/gen3svg/${imageName}.png`; // Correct path included
+      const imagePath = `https://raw.githubusercontent.com/Rohrlapper/molecularassets/main/assets/gen3svg/${imageName}.png`; // Absolute path included
       images[imageName] = loadImage(imagePath, img => {
         // img.filter(INVERT); // Apply invert filter to each image
       }, error => {
@@ -61,6 +59,7 @@ function preload() {
     }
   });
 }
+
 
 
 
