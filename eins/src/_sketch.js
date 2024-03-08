@@ -2,7 +2,7 @@ let showBasedOnState = true; // Standard er 'false'
 
 let imageVariant = 1; // Start med variant _1
 
-let showGrowingTriangle = false; // Initialt deaktivert
+let showGrowingTriangle = true; // Initialt deaktivert
 
 let showSierpinski 
 let sierpinskiDepth = 0 // Startdybde
@@ -11,13 +11,13 @@ const maxDepth = 6; // Maksimal dybde
 
 let shouldRandomizeImages = false;
 
-let edge_length = 150; // Default length of the triangle's edge
+let edge_length = 80; // Default length of the triangle's edge
 
 let circleDiameter =edge_length/7//Dynamisk størrelse på sirkler
 
 let showRecursiveTree = false; // Controls whether to show the recursive trees
 let recursiveTreeDepth = 3; // How deep the recursion goes
-let initialBranchLength = edge_length; // Starting length of branches
+let initialBranchLength = edge_length/3*2; // Starting length of branches
 
 
 let showLabels = false; // Initially, labels are not shown
@@ -68,7 +68,8 @@ function preload() {
 
 function setup() {
   console.log('Setter opp');
-  createCanvas(windowWidth, windowHeight);
+  var canvas = createCanvas(windowWidth, windowHeight);
+  canvas.style('display', 'block'); // Unngår scrollbar i noen tilfeller
   hueSlider = select('#hueSlider');
 
   
@@ -108,4 +109,9 @@ function draw() {
     });
   }
 
+}
+
+function windowResized() {
+  // Oppdater størrelsen på lerretet når vinduet endres
+  resizeCanvas(windowWidth, windowHeight);
 }
